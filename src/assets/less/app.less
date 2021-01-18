@@ -1,0 +1,59 @@
+@import './_colors.less';
+@import './components/navbar.less';
+@import './components/form-input.less';
+@import './components/card.less';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    font-family: sans-serif;
+}
+
+.link {
+    text-decoration: none;
+    color: @primary;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 1px solid @primary;
+    margin-right: 5px;
+}
+
+.logo {
+    width: 30px;
+    height: 30px;
+}
+
+.btn {
+    border: none;
+    padding: 6px 12px;
+    background-color: white;
+    border: 1px solid @gray;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+.btn-primary {
+    border: none;
+    background-color: @primary;
+    color: white;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.register, .login {
+    padding-top: 10%;
+}
+
