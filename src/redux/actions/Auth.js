@@ -12,7 +12,16 @@ export const signIn = (user) => {
   };
 };
 
+export const authenticated = (token) => {
+  return {
+    type: 'SET_TOKEN',
+    token
+  }
+};
+
 export const signUpSuccess = (token) => {
+  console.log(1)
+  console.log(token)
     return {
       type: 'SIGNUP_SUCCESS',
       token

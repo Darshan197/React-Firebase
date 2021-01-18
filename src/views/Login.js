@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
 import Card from '../components/Card'
 import {
 	signIn,
@@ -7,11 +9,15 @@ import {
 } from '../redux/actions'
 
 const Login = (props) => {
+    const history = useHistory()
     const [user, setUser] = useState({email: 'u1@test.com', password: 'Darshan'})
     const login = () => {
         props.showLoading()
         props.signIn({ email: user.email, password: user.password })
     }
+    useEffect(() => {
+        if(props.token !== null) history.push('/dashboard')
+    })
     return (
             <div className="login">
                 <div className="flex flex-center">

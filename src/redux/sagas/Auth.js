@@ -1,6 +1,6 @@
 import { takeEvery, call, put, fork, all } from 'redux-saga/effects'
 import Firebase from '../../services/Firebase';
-import { signUpSuccess, showAuthMessage, signOutSuccess } from '../actions';
+import { signUpSuccess, showAuthMessage, signOutSuccess, authenticated } from '../actions';
 
 export function* signUpWithFBEmail() {
     yield takeEvery('SIGNUP', function* ({payload}) {
@@ -28,7 +28,7 @@ export function* signUpWithFBEmail() {
                   yield put(showAuthMessage(user.message));
               } else {
                   localStorage.setItem('auth_token', user.user.uid);
-                  yield put(signUpSuccess(user.users[0].uid));
+                  yield put(authenticated(user.user.uid));
                   
               }
           } catch (error) {
